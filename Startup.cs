@@ -1,3 +1,5 @@
+using GoblinPF.Entities;
+using GoblinPF.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -5,6 +7,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using MySQL.Data.Entity.Extensions;
 
 namespace GoblinPF
 {
@@ -27,6 +30,9 @@ namespace GoblinPF
         {
             services.AddMvc();
             services.AddSingleton(Configuration);
+            services.AddSingleton<CategoryDAO>();
+            services.AddDbContext<GoblinPFDBContext>(options =>
+                options.UseMySQL(Configuration.GetConnectionString("GoblinPF")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
