@@ -31,6 +31,7 @@ namespace GoblinPF
             services.AddMvc();
             services.AddSingleton(Configuration);
             services.AddSingleton<CategoryDAO>();
+            services.AddSingleton<TransactionDAO>();
             services.AddDbContext<GoblinPFDBContext>(options =>
                 options.UseMySQL(Configuration.GetConnectionString("GoblinPF")));
         }

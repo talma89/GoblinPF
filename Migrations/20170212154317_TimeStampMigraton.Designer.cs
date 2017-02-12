@@ -8,9 +8,10 @@ using GoblinPF.Entities;
 namespace GoblinPF.Migrations
 {
     [DbContext(typeof(GoblinPFDBContext))]
-    partial class GoblinPFDBContextModelSnapshot : ModelSnapshot
+    [Migration("20170212154317_TimeStampMigraton")]
+    partial class TimeStampMigraton
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752");
